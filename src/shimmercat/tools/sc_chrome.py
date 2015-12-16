@@ -28,7 +28,7 @@ import sys
 import subprocess as sp
 import os
 import os.path
-import shutil
+
 
 def get_chrome_exe():
     if sys.platform == 'darwin':
