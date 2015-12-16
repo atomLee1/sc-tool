@@ -67,12 +67,14 @@ def with_args(args):
     proxy_port = args.socks5_port
     executable=args.executable
     print("About to execute Google Chrome")
-    sp.check_call(
+    user_dir = os.path.join(args.user_dir, "socks5_port_" + str(proxy_port))
+    p = sp.Popen(
         [
             executable,
-            "--user-data-dir={0}".format(args.user_dir),
+            "--user-data-dir={0}".format(user_dir),
             "--proxy-server=socks5://127.0.0.1:{0}".format(proxy_port),
             "--host-resolver-rules=MAP * ~NOTFOUND , EXCLUDE 127.0.0.1"
         ]
     )
+    print("Chrome should be opening now")
 
