@@ -65,7 +65,7 @@ def fill_arg_parser(aparser):
 
 def with_args(args):
     proxy_port = args.socks5_port
-    executable=args.executable
+    executable=args.executablepip
     print("About to execute Google Chrome. To shut it down, press Ctrl-C in this terminal")
     sp.check_call(
         [
