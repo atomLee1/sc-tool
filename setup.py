@@ -37,18 +37,18 @@ with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
     long_description = f.read()
 
 setup(
-    name='sc-learn',
+    name='sc-tool',
 
     # Versions should comply with PEP440.  For a discussion on single-sourcing
     # the version across setup.py and the project code, see
     # https://packaging.python.org/en/latest/single_source_version.html
-    version='1.0.0',
+    version='1.0.2',
 
-    description='ShimmerCat\'s automatic learner',
+    description='ShimmerCat\'s administrative tools',
     long_description=long_description,
 
     # The project's main homepage.
-    url='https://www.shimmercat.com/info/articles/learning-and-pushing/',
+    url='https://www.shimmercat.com/',
 
     # Author details
     author='Alcides Viamontes Esquivel',
@@ -63,14 +63,11 @@ setup(
         #   3 - Alpha
         #   4 - Beta
         #   5 - Production/Stable
-        'Development Status :: 5 - Stable',
+        'Development Status :: 4 - Beta',
 
         # Indicate who your project is intended for
         'Intended Audience :: Developers',
         'Topic :: Software Development :: Build Tools',
-
-        # Pick your license as you wish (should match "license" above)
-        'License :: OSI Approved :: BSD3 License',
 
         # Specify the Python versions you support here. In particular, ensure
         # that you indicate whether you support Python 2, Python 3 or both.
