@@ -1,4 +1,5 @@
 
+from __future__ import print_function
 
 import sys
 import subprocess as sp
@@ -44,5 +45,11 @@ def with_args(args):
     if args.dry_run:
         for cmd in cmds:
             print(" ".join(cmd))
-
-
+    else:
+        for cmd in cmds:
+            try:
+                print(" ".join(cmd))
+                sp.check_call(cmd)
+            except sp.CalledProcessError:
+                print("**ERROR: Failed adding certificate, exiting", file=sys.stderr)
+                exit(2)

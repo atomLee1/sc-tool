@@ -44,7 +44,7 @@ def main():
     sc_chrome.fill_arg_parser(sc_chrome_parser)
 
     if sys.platform == 'darwin':
-        sc_instca_parser = subparsers.add_parser('addca', help="Install a CA certificate in the user's chain (Mac OS X)")
+        sc_instca_parser = subparsers.add_parser('addca', help="Install Mousebox's testing CA in the login keychain (Mac OS X)")
         sc_instca.fill_arg_parser( sc_instca_parser )
 
     args=parser.parse_args()
