@@ -24,9 +24,12 @@
 # THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 import argparse
+import sys
 
 import sc_learn
 import sc_chrome
+import sc_instca
+
 
 def main():
     parser = argparse.ArgumentParser(
@@ -40,12 +43,21 @@ def main():
     sc_chrome_parser = subparsers.add_parser('chrome', help="Invoke Google Chrome with SOCKS5 proxy")
     sc_chrome.fill_arg_parser(sc_chrome_parser)
 
+    if sys.platform == 'darwin':
+        sc_instca_parser = subparsers.add_parser('addca', help="Install a CA certificate in the user's chain (Mac OS X)")
+        sc_instca.fill_arg_parser( sc_instca_parser )
+
     args=parser.parse_args()
 
     if args.subparser_name == "learn":
         sc_learn.with_args(args)
     elif args.subparser_name == "chrome":
         sc_chrome.with_args(args)
+    elif sys.platform == 'darwin':
+        if args.subparser_name == 'addca':
+            sc_instca.with_args(args)
+        else:
+            parser.print_usage()
     else:
         parser.print_usage()
 
