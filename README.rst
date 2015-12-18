@@ -6,4 +6,4 @@ This is a helper tool that simplifies working with ShimmerCat. It is written in 
 
 
 
-See https://beta.shimmercat.com/info/articles/getting-started/ for  a longer explanation of how to use this tool.
+See https://www.shimmercat.com/info/articles/getting-started/ for  a longer explanation of how to use this tool.
