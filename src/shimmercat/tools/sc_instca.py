@@ -26,7 +26,7 @@ def make_cmd(username, cert_path):
     return [
         "sudo",
         "security",
-        "add-trusted-cert", "-d", "-r", "trustRoot",
+        "add-trusted-cert", "-r", "trustRoot",
         "-p", "ssl", "-k", "/Users/{0}/Library/Keychains/login.keychain".format(username),
         cert_path
     ]
