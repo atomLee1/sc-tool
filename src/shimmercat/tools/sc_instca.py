@@ -8,7 +8,7 @@ import glob
 import os.path
 
 # Use a command like this one...
-# sudo security add-trusted-cert -d -r trustRoot   -p ssl -k /Users/alcides/Library/Keychains/login.keychain ~/.config/mousebox/mousebox_ca_root_tuqrep.pem
+# security add-trusted-cert -d -r trustRoot   -p ssl -k /Users/alcides/Library/Keychains/login.keychain ~/.config/mousebox/mousebox_ca_root_tuqrep.pem
 
 def fill_arg_parser(aparser):
     aparser.add_argument(
@@ -24,7 +24,6 @@ def get_mousebox_path():
 
 def make_cmd(username, cert_path):
     return [
-        "sudo",
         "security",
         "add-trusted-cert", "-r", "trustRoot",
         "-p", "ssl", "-k", "/Users/{0}/Library/Keychains/login.keychain".format(username),
