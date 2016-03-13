@@ -1,0 +1,6 @@
+argparse==1.2.1
+requests==2.8.1
+sc-learn==1.0.0
+sc-tool==1.0.6
+selenium==2.48.0
+wsgiref==0.1.2
