@@ -196,7 +196,7 @@ def with_args(args):
         print("**Error: ", e.message, file=sys.stderr)
         exit(2)
     except requests.exceptions.ConnectionError as e:
-        print("**Error: Could not connect to ShimmerCat. Please ensure the server is running with --devlove"
+        print("**Error: Could not connect to ShimmerCat. Please ensure the server is running with devlove"
               " and the provided connection parameters are OK. ", file=sys.stderr
               )
         exit(2)
