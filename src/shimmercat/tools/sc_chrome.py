@@ -62,19 +62,34 @@ def fill_arg_parser(aparser):
         metavar="USER_DIR",
         default=get_default_alt_dir()
     )
+    aparser.add_argument(
+        '-s', '--ssl-keylog', help="Create a keylog file for decrypting TLS sessions",
+        dest='use_keylog',
+        type=str,
+        metavar="KEYLOG",
+        default=None
+    )
 
 def with_args(args):
     proxy_port = args.socks5_port
     executable=args.executable
     print("About to execute Google Chrome")
     user_dir = os.path.join(args.user_dir, "socks5_port_" + str(proxy_port))
+
+    new_env = os.environ.copy()
+
+    if args.use_keylog:
+        new_env['SSLKEYLOGFILE'] = args.use_keylog
+
     p = sp.Popen(
         [
             executable,
             "--user-data-dir={0}".format(user_dir),
             "--proxy-server=socks5://127.0.0.1:{0}".format(proxy_port),
             "--host-resolver-rules=MAP * ~NOTFOUND , EXCLUDE 127.0.0.1"
-        ]
+        ],
+
+        env=new_env
     )
     print("Chrome should be opening now")
 
