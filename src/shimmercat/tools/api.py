@@ -98,6 +98,9 @@ class RestApi(object):
         r = self.get("nominal-apices")
         return r.json()
 
+    def get_pushlists(self):
+        pushlists = self.get("push-lists")
+        return pushlists.content
+
     def learn(self):
         r = self.post("learn", check_ok=False)
-        print(r)

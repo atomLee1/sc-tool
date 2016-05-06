@@ -87,8 +87,6 @@ def train_shimmercat(
             print("  ", apex)
         return
 
-    #apexes=["/__404.html"]
-
     api.set_no_triggers()
     api.set_learning()
 
@@ -113,6 +111,7 @@ def train_shimmercat(
         th.join()
     api.learn()
     api.set_no_learning()
+    print(api.get_pushlists())
 
 
 def fill_arg_parser(aparser):
