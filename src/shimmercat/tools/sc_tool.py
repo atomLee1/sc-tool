@@ -26,7 +26,6 @@
 import argparse
 import sys
 
-import sc_learn
 import sc_chrome
 import sc_instca
 
@@ -37,8 +36,6 @@ def main():
     )
     subparsers = parser.add_subparsers(dest="subparser_name",
                                        description="Use -h with each subcommand below for more details")
-    sc_learn_parser = subparsers.add_parser('learn', help="Train server to perform HTTP/2 PUSH")
-    sc_learn.fill_arg_parser(sc_learn_parser)
 
     sc_chrome_parser = subparsers.add_parser('chrome', help="Invoke Google Chrome with SOCKS5 proxy")
     sc_chrome.fill_arg_parser(sc_chrome_parser)
@@ -49,9 +46,7 @@ def main():
 
     args=parser.parse_args()
 
-    if args.subparser_name == "learn":
-        sc_learn.with_args(args)
-    elif args.subparser_name == "chrome":
+    if args.subparser_name == "chrome":
         sc_chrome.with_args(args)
     elif sys.platform == 'darwin':
         if args.subparser_name == 'addca':

@@ -42,7 +42,7 @@ def get_default_alt_dir():
 
 def fill_arg_parser(aparser):
     aparser.add_argument(
-        "-5", "--socks5-port", help="SOCKS6 proxy port that ShimmerCat is running on",
+        "-5", "--socks5-port", help="SOCKS5 proxy port that ShimmerCat is running on",
         dest='socks5_port',
         type=int,
         metavar='SOCKS5_PORT',
