@@ -49,6 +49,13 @@ def fill_arg_parser(aparser):
         default=2006
     )
     aparser.add_argument(
+        "-5", "--socks5-host", help="SOCKS5 IP to connect to. By default, it is 127.0.0.1",
+        dest='socks5_host',
+        type=int,
+        metavar='SOCKS5_HOST',
+        default="127.0.0.1"
+    )
+    aparser.add_argument(
         "-x", "--executable", help="Chrome executable to use",
         dest="executable",
         type=str,
@@ -71,6 +78,7 @@ def fill_arg_parser(aparser):
     )
 
 def with_args(args):
+    proxy_host = args.socks5_host
     proxy_port = args.socks5_port
     executable=args.executable
     print("About to execute Google Chrome")
@@ -85,8 +93,8 @@ def with_args(args):
         [
             executable,
             "--user-data-dir={0}".format(user_dir),
-            "--proxy-server=socks5://127.0.0.1:{0}".format(proxy_port),
-            "--host-resolver-rules=MAP * ~NOTFOUND , EXCLUDE 127.0.0.1"
+            "--proxy-server=socks5://{1}:{0}".format(proxy_port, proxy_host),
+            "--host-resolver-rules=MAP * ~NOTFOUND , EXCLUDE {0}".format(proxy_host)
         ],
 
         env=new_env
