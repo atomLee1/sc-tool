@@ -49,9 +49,9 @@ def fill_arg_parser(aparser):
         default=2006
     )
     aparser.add_argument(
-        "-5", "--socks5-host", help="SOCKS5 IP to connect to. By default, it is 127.0.0.1",
+        "-m", "--socks5-host", help="SOCKS5 IP to connect to. By default, it is 127.0.0.1",
         dest='socks5_host',
-        type=int,
+        type=str,
         metavar='SOCKS5_HOST',
         default="127.0.0.1"
     )
