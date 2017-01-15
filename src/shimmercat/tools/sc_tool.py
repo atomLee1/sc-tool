@@ -26,8 +26,8 @@
 import argparse
 import sys
 
-import shimmercat.tools.sc_chrome
-import shimmercat.tools.sc_instca
+import shimmercat.tools.sc_chrome as sc_chrome
+import shimmercat.tools.sc_instca as sc_instca
 
 
 def main():
