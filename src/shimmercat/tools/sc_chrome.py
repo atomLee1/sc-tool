@@ -103,7 +103,7 @@ def with_args(args):
             "--host-resolver-rules=MAP * ~NOTFOUND , EXCLUDE {0}".format(proxy_host)
         ]
     if args.verbose:
-        print(' '.join(cmd_line)
+        print(' '.join(cmd_line) )
     p = sp.Popen(
         cmd_line,
         env=new_env
