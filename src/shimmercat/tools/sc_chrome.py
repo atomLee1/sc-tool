@@ -70,6 +70,14 @@ def fill_arg_parser(aparser):
         default=get_default_alt_dir()
     )
     aparser.add_argument(
+        "-V", "--verbose", help="Report the command used to invoke Chrome",
+        type=bool,
+        action='store_const',
+        dest='verbose',
+        const=True,
+        default=False,
+    )
+    aparser.add_argument(
         '-s', '--ssl-keylog', help="Create a keylog file for decrypting TLS sessions",
         dest='use_keylog',
         type=str,
@@ -88,15 +96,16 @@ def with_args(args):
 
     if args.use_keylog:
         new_env['SSLKEYLOGFILE'] = args.use_keylog
-
-    p = sp.Popen(
-        [
+    cmd_line = [
             executable,
             "--user-data-dir={0}".format(user_dir),
             "--proxy-server=socks5://{1}:{0}".format(proxy_port, proxy_host),
             "--host-resolver-rules=MAP * ~NOTFOUND , EXCLUDE {0}".format(proxy_host)
-        ],
-
+        ]
+    if args.verbose:
+        print(' '.join(cmd_line)
+    p = sp.Popen(
+        cmd_line,
         env=new_env
     )
     print("Chrome should be opening now")
