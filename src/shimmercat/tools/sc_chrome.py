@@ -71,7 +71,6 @@ def fill_arg_parser(aparser):
     )
     aparser.add_argument(
         "-V", "--verbose", help="Report the command used to invoke Chrome",
-        type=bool,
         action='store_const',
         dest='verbose',
         const=True,
